@@ -1,0 +1,35 @@
+CREATE TABLE user (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT);
+
+CREATE TABLE health (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    date INTEGER,
+    steps INTEGER,
+    distance INTEGER);
+    
+INSERT INTO health (user_id,date,steps,distance) 
+VALUES (1, "2/11/20",260,.11);
+INSERT INTO health (user_id,date,steps,distance) 
+VALUES (1, "2/12/20",300,.22);
+INSERT INTO health (user_id,date,steps,distance) 
+VALUES (1, "2/14/20",200,.09);
+INSERT INTO health (user_id,date,steps,distance) 
+VALUES (1, "2/14/20",350,.25);
+INSERT INTO health (user_id,date,steps,distance) 
+VALUES (1, "2/15/20",100,.05);
+INSERT INTO health (user_id,date,steps,distance) 
+VALUES (1, "2/17/20",260,.11);
+INSERT INTO health (user_id,date,steps,distance) 
+VALUES (1, "2/18/20",150,.06);
+    
+SELECT * FROM health;
+
+UPDATE health SET steps=390, distance=.27 WHERE date="2/18/20";
+SELECT * FROM health;
+
+ALTER TABLE health ADD note TEXT default "none";
+UPDATE health SET note="Went for jog" WHERE date="2/18/20";
+SELECT * FROM health;
+
+DELETE FROM health WHERe id IN (1,2,3,5);
+SELECT * FROM health;

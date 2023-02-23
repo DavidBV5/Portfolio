@@ -1,0 +1,24 @@
+CREATE TABLE my_store (id INTEGER PRIMARY KEY, type TEXT, brand TEXT, aisle INTEGER, stock INTEGER, price INTEGER);
+
+INSERT INTO my_store VALUES(1, "shirt", "Tommy Hilfiger",1,59,23);
+INSERT INTO my_store VALUES(2, "shirt", "Calvin Klein",2,67,24);
+INSERT INTO my_store VALUES(3, "shirt", "Nike",3,84,15);
+INSERT INTO my_store VALUES(4, "shirt", "Addidas",4,76,14);
+INSERT INTO my_store VALUES(5, "pants", "Tommy Hilfiger",1,29,35);
+INSERT INTO my_store VALUES(6, "pants", "Calvin Klein",2,26,35);
+INSERT INTO my_store VALUES(7, "pants", "Levis",5,44,30);
+INSERT INTO my_store VALUES(8, "sweater", "Vans",3,16,21);
+INSERT INTO my_store VALUES(9, "sweater", "Nike",3,17,20);
+INSERT INTO my_store VALUES(10, "sweater", "Adidas",1,16,20);
+INSERT INTO my_store VALUES(11, "jacket", "North Face",5,19,99);
+INSERT INTO my_store VALUES(12, "underwear", "Calvin Klein",6,40,10);
+INSERT INTO my_store VALUES(13, "socks", "Nike",6,45,10);
+INSERT INTO my_store VALUES(14, "shoes", "Tommy Hilfiger",7,39,65);
+INSERT INTO my_store VALUES(15, "shoes", "Calvin Klein",7,47,70);
+INSERT INTO my_store VALUES(16, "shoes", "Vans",7,120,50);
+
+SELECT * FROM my_store ORDER BY price;
+
+SELECT SUM(stock)FROM my_store;
+SELECT aisle, SUM(stock) FROM my_store GROUP BY aisle;
+SELECT type, SUM(stock) FROM my_store GROUP BY type;

@@ -1,0 +1,42 @@
+CREATE TABLE celebrity (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+    
+    /*"56"?*/
+INSERT INTO celebrity (fullname, age) VALUES ("Brad Pitt", 56);
+INSERT INTO celebrity (fullname, age) VALUES ("Christian Bale", 46);
+INSERT INTO celebrity (fullname, age) VALUES ("Ryan Gosling", 39);
+INSERT INTO celebrity (fullname, age) VALUES ("Bradley Cooper", 45);
+INSERT INTO celebrity (fullname, age) VALUES ("Eva Mendes", 45);
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    celebrity_id INTEGER,
+    movie TEXT);
+
+INSERT INTO movies (celebrity_id, movie) VALUES (1, "The Big Short");
+INSERT INTO movies (celebrity_id, movie) VALUES (2, "The Big Short");
+INSERT INTO movies (celebrity_id, movie) VALUES (3, "The Big Short");
+INSERT INTO movies (celebrity_id, movie) VALUES (3, "The Place Beyond the Pines");
+INSERT INTO movies (celebrity_id, movie) VALUES (4, "The Place Beyond the Pines");
+INSERT INTO movies (celebrity_id, movie) VALUES (5, "The Place Beyond the Pines");
+
+
+CREATE table married (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    celebrity1_id INTEGER,
+    celebrity2_id INTEGER);
+
+INSERT INTO married (celebrity1_id, celebrity2_id)
+    VALUES (3, 5);
+    
+    
+SELECT celebrity.fullname, movies.movie FROM celebrity
+JOIN movies ON celebrity.id=movies.celebrity_id;
+
+SELECT a.fullname,b.fullname from married
+JOIN celebrity a
+ON married.celebrity1_id=a.id
+JOIN celebrity b
+ON married.celebrity2_id=b.id;
